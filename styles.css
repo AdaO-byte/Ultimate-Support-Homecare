@@ -1,328 +1,67 @@
-:root {
-  --teal-dark: #0f4c5c;
-  --teal: #1b6f7a;
-  --teal-light: #e6f4f6;
-  --gold: #d4af37;
-  --white: #ffffff;
-  --text-dark: #1f2933;
+:root{--teal-dark:#0c3f4c;--teal:#1b6f7a;--mist:#e8f3f4;--gold:#b8892e;--gold-d:#9a7122;--ink:#18272d;--paper:#fbfdfd;--line:#d3e3e5}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Figtree,system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;font-size:1.0625rem}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.2;color:var(--teal-dark)}
+h1{font-size:clamp(2.1rem,5vw,3.4rem)}h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:.9rem}h3{font-size:1.2rem;margin:1.4rem 0 .5rem}
+p{margin-bottom:1rem;max-width:68ch}a{color:var(--teal)}
+img{max-width:100%;display:block}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}.narrow{max-width:780px}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:99}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+/* header */
+.site-header{background:var(--teal-dark);position:sticky;top:0;z-index:50}
+.bar{display:flex;align-items:center;justify-content:space-between;min-height:72px}
+.brand{color:#fff;text-decoration:none;font-family:Fraunces,serif;font-weight:600;font-size:1.15rem;line-height:1.15}
+.brand span{display:block;font-family:Figtree,sans-serif;font-weight:500;font-size:.78rem;opacity:.8}
+nav{display:flex;align-items:center;gap:22px}
+nav a:not(.btn){color:#fff;text-decoration:none;font-weight:500;padding:6px 0;border-bottom:2px solid transparent}
+nav a:not(.btn):hover,nav a[aria-current]{border-color:var(--gold)}
+.menu-btn{display:none;background:none;border:1px solid rgba(255,255,255,.5);color:#fff;padding:8px 14px;border-radius:6px;font:inherit}
+/* buttons */
+.btn{display:inline-block;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;border:2px solid transparent;cursor:pointer;font:inherit;font-weight:600;transition:background .2s}
+.btn-gold{background:var(--gold);color:#fff}.btn-gold:hover{background:var(--gold-d)}
+.btn-ghost{border-color:#fff;color:#fff}.btn-ghost:hover{background:rgba(255,255,255,.12)}
+/* hero */
+.hero{background:var(--teal-dark);color:#fff;padding:64px 0}
+.hero h1{color:#fff;margin-bottom:1rem}.lead{font-size:1.2rem;opacity:.92}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+.hero-img{width:100%;height:auto;aspect-ratio:9/7;object-fit:cover;border-radius:18px 18px 18px 90px}
+.btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:1.5rem}
+.hero-home{padding:84px 0}.hero-home .hero-img{aspect-ratio:1/1}
+.hero.sub{padding:56px 0}
+/* sections */
+.section{padding:72px 0}.tint{background:var(--mist)}
+.intro{font-size:1.1rem}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.split img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 30%;border-radius:90px 18px 18px 18px}
+.split.flip>div{order:2}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:1.5rem}
+.card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:8px;padding:24px}
+.card h3{margin-top:0}.card p{margin:0}
+.checks{list-style:none;display:grid;gap:10px;margin-bottom:1rem}
+.checks li{padding-left:30px;position:relative}
+.checks li::before{content:"";position:absolute;left:4px;top:.45em;width:7px;height:13px;border:solid var(--gold);border-width:0 3px 3px 0;transform:rotate(40deg)}
+.cta{background:var(--teal);color:#fff;text-align:center;padding:64px 0}
+.cta h2{color:#fff}.cta p{margin:0 auto 1.5rem;opacity:.95}
+/* forms */
+.form{background:#fff;border:1px solid var(--line);border-radius:12px;padding:32px}
+.form label:not(.check),.form legend{display:block;font-weight:600;margin:1rem 0 .3rem;font-size:.97rem}
+input:not([type=checkbox]):not([type=radio]),select,textarea{width:100%;padding:11px 12px;border:1px solid #9bb7bb;border-radius:6px;font:inherit;background:#fff}
+fieldset{border:0;margin:.5rem 0}
+.check{display:flex;gap:10px;align-items:flex-start;margin:.4rem 0;font-weight:400}.check input{margin-top:.4rem}
+.note{font-size:.9rem;color:#4a6168;margin:.5rem 0 0}
+.form .btn{margin-top:1.5rem}
+.contact .info p{margin-bottom:1.1rem}
+/* footer */
+.site-footer{background:var(--teal-dark);color:#fff;padding:48px 0 24px}
+.site-footer a{color:#fff}.foot{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
+.foot p{margin:.3rem 0 0;opacity:.9}.copy{margin-top:32px;padding-top:18px;border-top:1px solid rgba(255,255,255,.2);font-size:.88rem;opacity:.8}
+@media(max-width:860px){
+.hero-grid,.split,.two{grid-template-columns:1fr;gap:32px}.split.flip>div{order:0}
+.menu-btn{display:block}
+nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--teal-dark);flex-direction:column;align-items:flex-start;padding:12px 24px 24px;gap:12px}
+nav.open{display:flex}.section{padding:52px 0}
 }
-
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--text-dark);
-  background-color: var(--teal light);
-  line-height: 1.6;
-}
-
-/* NAV */
-.site-header {
-  background: var(--teal-dark);
-  padding: 14px 0;
-}
-
-.nav-container {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  color: var(--white);
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
-nav {
-  display: flex;
-  gap: 18px;
-}
-
-nav a {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-nav a:hover {
-  color: var(--gold);
-}
-
-.btn {
-  display: inline-block;
-  padding: 14px 28px;
-  border-radius: 6px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.btn-gold {
-  background-color: #c9a44c;
-  color: #ffffff;
-  border: 2px solid #c9a44c;
-}
-
-.btn-gold:hover {
-  background-color: #b8943f;
-  border-color: #b8943f;
-  color: #ffffff;
-}
-
-
-/* HERO */
-.hero {
-  background: linear-gradient(rgba(15,76,92,.85), rgba(15,76,92,.85)),
-    url('hero.jpg') center/cover;
-  color: var(--white);
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.hero-buttons {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.hero-helper-text {
-  margin-top: 20px;
-  margin-bottom: 0;
-}
-
-.hero-cta-spacer {
-  margin-top: 28px;
-}
-
-/* SECTIONS */
-.section {
-  padding: 60px 20px;
-}
-
-.section-alt {
-  background: var(--teal-light);
-}
-
-.container {
-  max-width: 1100px;
-  margin: auto;
-}
-
-/* SERVICE BOXES */
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  margin-top: 30px;
-}
-
-.service-box {
-  background: var(--teal);
-  border-radius: 6px;
-  padding: 25px;
-  text-align: center;
-}
-
-.service-box h3 {
-  color: var(--teal-light);
-  margin-bottom: 10px;
-}
-
-/* FOOTER */
-.site-footer {
-  background: var(--teal-dark);
-  color: var(--white);
-  text-align: center;
-  padding: 25px;
-  font-size: .9rem;
-}
-
-
-/* --- Paragraph spacing / readability --- */
-p {
-  margin-bottom: 1.25rem;
-  line-height: 1.65;
-}
-
-/* Extra breathing room for long-form sections (About, Services, etc.) */
-.section p {
-  max-width: 800px;
-}
-
-
-.form-card {
-  margin: 0 auto;
-  max-width: 710px;
-}
-
-
-/* ===============================
-   DoDD PAGE SPACING FIX ONLY
-   =============================== */
-
-.dodd-page .section {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
-.dodd-page p {
-  margin-bottom: 1rem;
-}
-
-.dodd-page h2 {
-  margin-bottom: 0.5rem;
-}
-
-/* Tighten gap before service lists */
-.dodd-page .card-grid {
-  margin-top: 1.5rem;
-}
-
-/* Reduce space before Who We Serve */
-.dodd-page h2 + p {
-  margin-top: 0.5rem;
-}
-
-/* Tighten CTA spacing */
-.dodd-page .section-teal p {
-  margin-bottom: 1.25rem;
-}
-
-
-
-/* =========================
-   PASSPORT PAGE MICRO-SPACING
-   ========================= */
-
-.passport-page .section {
-  padding: 50px 0;
-}
-
-.passport-page .section h2 {
-  margin-bottom: 16px;
-}
-
-.passport-page .section p {
-  margin-bottom: 16px;
-}
-
-/* Reduce space between intro paragraphs and next section */
-.passport-page .section + .section {
-  margin-top: -40px;
-}
-
-/* Tighten spacing above PASSPORT services section */
-.passport-page .section-teal {
-  padding-top: 25px;
-  padding-bottom: 25px;
-}
-
-/* Tighten spacing before CTA */
-.passport-page .section-gold {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-/* Reduce extra spacing inside CTA */
-.passport-page .section-gold p {
-  margin-bottom: 20px;
-}
-
-
-.hero-centered-text {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 1.5rem;
-}
-
-
-.home-page .section {
-  padding-top: 2rem;
-  padding-bottom: 2.25rem;
-}
-
-.home-page .section-teal {
-  padding-top: 2.25rem;
-  padding-bottom: 2.5rem;
-}
-
-/* Reduce space between headings and text */
-.home-page .section h2 {
-  margin-bottom: 0.75rem;
-}
-
-.home-page .section p {
-  margin-bottom: 1.75rem;
-}
-
-/* Cards closer together */
-.home-page .card-grid {
-  margin-top: 1.25rem;
-}
-
-/* Final CTA tightening */
-.home-page .section-teal h2 {
-  margin-bottom: 0.5rem;
-}
-
-.home-page .section-teal p {
-  margin-bottom: 1.25rem;
-}
-
-.home-page {
-  background-color: var(--primary-dark);
-}
-
-
-.services-page .services-header {
-  background-color: var(--bg);
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-.services-page .services-header h1 {
-  color: var(--primary-dark);
-  margin-bottom: 0.75rem;
-}
-
-
-/* ===============================
-   SERVICES PAGE – POLISHED TEXT HIERARCHY
-   =============================== */
-
-.services-page .service-box h3 {
-  color: #ffffff;
-  margin-bottom: 0.5rem;
-  position: relative;
-  padding-bottom: 0.35rem;
-}
-
-/* Gold accent underline */
-.services-page .service-box h3::after {
-  content: "";
-  display: block;
-  width: 36px;
-  height: 3px;
-  background-color: var(--accent);
-  margin-top: 0.4rem;
-  border-radius: 2px;
-}
-
-.services-page .service-box p {
-  color: rgba(255, 255, 255, 0.92);
-}
-
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
