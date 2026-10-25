@@ -28,13 +28,13 @@ nav a:not(.btn):hover,nav a[aria-current]{border-color:var(--gold)}
 .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
 .hero-img{width:100%;height:auto;aspect-ratio:9/7;object-fit:cover;border-radius:18px 18px 18px 90px}
 .btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:1.5rem}
-.hero-home{padding:84px 0}.hero-home .hero-img{aspect-ratio:1/1}
+.hero-home{padding:84px 0}.hero-home .hero-img{aspect-ratio:3/2}
 .hero.sub{padding:56px 0}
 /* sections */
 .section{padding:72px 0}.tint{background:var(--mist)}
 .intro{font-size:1.1rem}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.split img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 30%;border-radius:90px 18px 18px 18px}
+.split img{width:100%;height:auto;border-radius:90px 18px 18px 18px}
 .split.flip>div{order:2}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:56px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:1.5rem}
